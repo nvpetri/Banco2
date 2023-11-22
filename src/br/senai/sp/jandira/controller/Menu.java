@@ -39,6 +39,9 @@ public class Menu {
                     funcionarioController.deletarFuncionario(funcionario);
                     break;
                 case 5:
+                    System.out.print("Digite o nome: ");
+                    String funcionarioConsulta = scanner.nextLine();
+                    funcionarioController.consultarFuncionario(funcionarioConsulta);
                     break;
                 case 6:
                     break;

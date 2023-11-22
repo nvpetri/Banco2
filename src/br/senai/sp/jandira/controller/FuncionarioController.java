@@ -54,9 +54,31 @@ public class FuncionarioController {
 
     public void cadastrarFuncionario(){
 
+
     }
 
-    public void consultarFuncionario(){
+    public void consultarFuncionario(String nome) throws SQLException {
+        Statement statement = conection.createStatement();
+        String queryList = "select * from funcionarios where nome = '" + nome + "'";
+
+        ResultSet resultSet = statement.executeQuery(queryList);
+
+        Funcionario funcionario = new Funcionario();
+
+        while (resultSet.next()){
+            funcionario.setId(resultSet.getInt("id_funcionario"));
+            funcionario.setNome(resultSet.getString("nome"));
+            funcionario.setCargo(resultSet.getString("cargo"));
+            funcionario.setDepartamento(resultSet.getString("departamento"));
+            funcionario.setSalario(resultSet.getDouble("salario"));
+
+            System.out.println(funcionario.getId());
+            System.out.println(funcionario.getNome());
+            System.out.println(funcionario.getCargo());
+            System.out.println(funcionario.getDepartamento());
+            System.out.println(funcionario.getSalario());
+
+        }
 
     }
 }
