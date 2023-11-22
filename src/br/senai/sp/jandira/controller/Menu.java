@@ -11,51 +11,24 @@ public class Menu {
         boolean continuar = true;
 
         while (continuar){
-            System.out.println("/----------- Seja bem viado -----------/");
-            System.out.println("1 - Listar Funcionários");
-            System.out.println("2 - Cadastrar Funcionário");
-            System.out.println("3 - Editar Funcionário");
-            System.out.println("4 - Deletar Funcionário");
-            System.out.println("5 - Pesquisar Funcionário");
-            System.out.println("6 - Sair");
 
             Scanner scanner = new Scanner(System.in);
 
-            int option = scanner.nextInt();
-            scanner.nextLine();
+            System.out.println("/----------- Senai Jandira ------------/");
+            System.out.println("1 - Funcionários");
+            System.out.println("2 - Departamentos");
+            int userOpt = scanner.nextInt();
 
-            FuncionarioController funcionarioController = new FuncionarioController();
-
-            switch (option){
+            switch (userOpt){
                 case 1:
-                    funcionarioController.listarFuncionarios();
+                    MenuFuncionario menuFuncionario = new MenuFuncionario();
+                    menuFuncionario.menuFuncionario();
                     break;
                 case 2:
-                    Funcionario nfuncionario = new Funcionario();
-                    nfuncionario.cadastrarFuncionario();
 
-                    funcionarioController.cadastrarFuncionario(nfuncionario);
-                    break;
-                case 3:
-                    System.out.print("Quem vai receber um aumento? ");
-                    String nomeAu = scanner.nextLine();
-                    System.out.println("Qual o novo salario? ");
-                    double novoSalario = scanner.nextDouble();
-                    funcionarioController.editarFuncionario(nomeAu, novoSalario);
-                    break;
-                case 4:
-                    System.out.print("Digite o nome: ");
-                    String funcionario = scanner.nextLine();
-                    funcionarioController.deletarFuncionario(funcionario);
-                    break;
-                case 5:
-                    System.out.print("Digite o nome: ");
-                    String funcionarioConsulta = scanner.nextLine();
-                    funcionarioController.consultarFuncionario(funcionarioConsulta);
-                    break;
-                case 6:
                     break;
             }
+
         }
     }
 }
