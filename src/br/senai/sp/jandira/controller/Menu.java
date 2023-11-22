@@ -1,5 +1,7 @@
 package br.senai.sp.jandira.controller;
 
+import br.senai.sp.jandira.model.Funcionario;
+
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -29,9 +31,17 @@ public class Menu {
                     funcionarioController.listarFuncionarios();
                     break;
                 case 2:
+                    Funcionario nfuncionario = new Funcionario();
+                    nfuncionario.cadastrarFuncionario();
 
+                    funcionarioController.cadastrarFuncionario(nfuncionario);
                     break;
                 case 3:
+                    System.out.print("Quem vai receber um aumento? ");
+                    String nomeAu = scanner.nextLine();
+                    System.out.println("Qual o novo salario? ");
+                    double novoSalario = scanner.nextDouble();
+                    funcionarioController.editarFuncionario(nomeAu, novoSalario);
                     break;
                 case 4:
                     System.out.print("Digite o nome: ");

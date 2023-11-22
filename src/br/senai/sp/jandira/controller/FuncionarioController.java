@@ -38,7 +38,14 @@ public class FuncionarioController {
 
     }
 
-    public void editarFuncionario(){
+    public void editarFuncionario(String nome, double salario) throws SQLException {
+        Statement statement = conection.createStatement();
+
+        String queryUpdate = "update funcionarios set salario = " +salario+ "where nome = '" + nome +"'";
+
+        statement.executeUpdate(queryUpdate);
+
+        System.out.println("A partir de agora o salário de " + nome + " é: "+ salario);
 
     }
 
@@ -52,9 +59,15 @@ public class FuncionarioController {
         System.out.println("Funcionário " +nome + "deletado com sucesso!!");
     }
 
-    public void cadastrarFuncionario(){
+    public void cadastrarFuncionario(Funcionario funcionario) throws SQLException {
+        Statement statement = conection.createStatement();
 
+        String queryCadastro = "INSERT INTO funcionarios (id_funcionario, nome, cargo, departamento, salario)values (" +
+                funcionario.getId() + ",'" + funcionario.getNome() + "','" + funcionario.getCargo() + "','" +
+                funcionario.getDepartamento() + "'," + funcionario.getSalario() + ")";
 
+        statement.executeUpdate(queryCadastro);
+        System.out.println("Funcionário Cadastrado com sucesso !");
     }
 
     public void consultarFuncionario(String nome) throws SQLException {

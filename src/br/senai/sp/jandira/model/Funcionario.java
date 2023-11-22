@@ -1,10 +1,29 @@
 package br.senai.sp.jandira.model;
 
+import java.util.Scanner;
+
 public class Funcionario {
     private String nome, cargo, departamento;
     private int id;
     private double salario;
 
+    public void cadastrarFuncionario(){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Informe o nome: ");
+        this.nome = scanner.nextLine();
+
+        System.out.print("Informe o cargo: ");
+        this.cargo = scanner.nextLine();
+
+        System.out.print("Informe o departamento: ");
+        this.departamento = scanner.nextLine();
+
+        System.out.print("Informe o salario: ");
+        this.salario = scanner.nextDouble();
+
+        scanner.nextLine();
+    }
     public String getNome() {
         return nome;
     }
